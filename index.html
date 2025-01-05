@@ -32,7 +32,7 @@
         }
 
         header h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Replace with Brande Sans Serif */
             font-size: 3rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -173,14 +173,14 @@
     </header>
     <div>
         <label for="movie_name">Enter Movie Code:</label>
-        <input id="movie_name" type="text" placeholder="e.g., tt1234567">
+        <input id="movie_name" type="text">
         <button id="update_btn">Load Movie</button>
     </div>
     <div class="resolution-buttons">
         <button id="hd_btn">HD</button>
         <button id="4k_btn">4K</button>
     </div>
-    <iframe id="movie_iframe" src="https://vidsrc.me/embed/movie?imdb=tt15398776" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
+    <iframe id="movie_iframe" src="https://vidsrc.me/embed/movie?imdb=tt13186482" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
 
     <script>
         const movieInput = document.getElementById('movie_name');
@@ -194,10 +194,10 @@
         // Update Movie Code
         updateButton.addEventListener('click', () => {
             const movieCode = movieInput.value.trim();
-            if (/^tt\d{7,8}$/.test(movieCode)) {
+            if (movieCode) {
                 iframe.src = `https://vidsrc.me/embed/movie?imdb=${movieCode}`;
             } else {
-                alert('Please enter a valid IMDb movie code (e.g., tt1234567).');
+                alert('Please enter a valid movie code.');
             }
         });
 
@@ -213,9 +213,11 @@
         // Dark Mode and Light Mode Toggle
         toggleModeButton.addEventListener('click', () => {
             body.classList.toggle('light-mode');
-            toggleModeButton.textContent = body.classList.contains('light-mode')
-                ? 'Switch to Dark Mode'
-                : 'Switch to Light Mode';
+            if (body.classList.contains('light-mode')) {
+                toggleModeButton.textContent = 'Switch to Dark Mode';
+            } else {
+                toggleModeButton.textContent = 'Switch to Light Mode';
+            }
         });
     </script>
 </body>
