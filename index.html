@@ -178,7 +178,7 @@
         <button id="hd_btn">HD</button>
         <button id="4k_btn">4K</button>
     </div>
-    <iframe id="movie_iframe" src="https://vidsrc.me/embed/movie/tt13186482" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
+    <iframe id="movie_iframe" src="https://vidsrc.me/embed/movie?imdb=tt13186482" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
 
     <script>
         const movieInput = document.getElementById('movie_name');
@@ -192,7 +192,7 @@
         updateButton.addEventListener('click', () => {
             const movieCode = movieInput.value.trim();
             if (movieCode) {
-                iframe.src = `https://vidsrc.me/embed/movie/${movieCode}`;
+                iframe.src = `https://vidsrc.me/embed/movie?imdb=${movieCode}`;
             } else {
                 alert('Please enter a valid movie code.');
             }
@@ -209,5 +209,3 @@
     </script>
 </body>
 </html>
-
-
