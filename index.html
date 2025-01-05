@@ -195,7 +195,7 @@
         updateButton.addEventListener('click', () => {
             const movieCode = movieInput.value.trim();
             if (movieCode) {
-                iframe.src = `https://vidsrc.me/embed/movie/imdb=${movieCode}`;
+                iframe.src = `https://vidsrc.me/embed/movie/${movieCode}`;
             } else {
                 alert('Please enter a valid movie code.');
             }
