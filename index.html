@@ -14,121 +14,96 @@
         }
 
         body {
-            font-family: 'Lobster', cursive;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(45deg, #c46e71, #cdbbbb, #9a073a);
-            background-size: 400% 400%;
-            animation: gradientBG 8s ease infinite;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        body.dark-mode {
+            font-family: Arial, sans-serif;
             background: #121212;
-            color: #e0e0e0;
-            animation: none;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: all 0.3s ease-in-out;
         }
 
-        header, footer {
-            width: 100%;
-            color: white;
-            padding: 1rem 2rem;
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 1.5rem 2rem;
             text-align: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        header { 
-            background-color: #ff6f61; 
+        header h1 {
+            font-family: 'Montserrat', sans-serif; /* Replace with Brande Sans Serif */
+            font-size: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #fff;
         }
 
-        footer {
-            margin-top: auto;
+        header button {
+            background: #fff;
+            color: #6a11cb;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
             font-size: 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: 0.3s ease-in-out;
         }
 
-        body.dark-mode header, body.dark-mode footer {
-            background-color: #1e1e1e;
+        header button:hover {
+            background: #6a11cb;
+            color: #fff;
+            transform: scale(1.1);
         }
 
-        .movie-container, .feature-card {
+        /* Input Section */
+        div {
             margin: 2rem auto;
             text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        .movie-container { width: 80%; max-width: 600px; }
-
-        .features-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        body.dark-mode .movie-container, body.dark-mode .feature-card {
-            background: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        .movie-container input, .movie-container button, .utility-button {
-            padding: 0.7rem;
+        label {
             font-size: 1rem;
-            border-radius: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 0.6rem;
+            font-size: 0.9rem;
+            width: 250px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: #6a11cb;
             outline: none;
-            transition: background-color 0.3s, color 0.3s, border 0.3s;
+            transform: scale(1.05);
         }
 
-        .movie-container input {
-            margin-right: 1rem;
-            border: 2px solid #ff6f61;
-        }
-
-        body.dark-mode .movie-container input {
-            background-color: #333;
-            color: #e0e0e0;
-            border: 2px solid #555;
-        }
-
-        .movie-container button, .utility-button {
-            color: white;
+        button {
+            background: #2575fc;
+            color: #fff;
             border: none;
+            padding: 0.6rem 1rem;
             cursor: pointer;
+            font-size: 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-left: 10px;
+            transition: all 0.3s ease-in-out;
         }
 
-        .movie-container button { 
-            background-color: #ff6f61; 
+        button:hover {
+            background: #6a11cb;
+            transform: scale(1.1);
         }
-
-        .utility-button {
-            position: fixed;
-            z-index: 1000;
-            top: 20px;
-            right: 20px;
-            background-color: #ff6f61;
-        }
-
-        .utility-button:hover, body.dark-mode .movie-container button { 
-            background-color: #967cff; 
-        }
-
-        #dark-mode-toggle { top: 80px; }
 
         /* Resolution Buttons */
         .resolution-buttons {
@@ -153,22 +128,20 @@
         }
 
         /* Iframe Styling */
-        .iframe-container {
-            margin-top: 1.5rem;
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        iframe {
+            display: block;
+            margin: 2rem auto;
+            border: 10px solid #00bfff; /* Neon Blue Border */
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #001f3f; /* Neon Blue Background */
+            width: 80%;
+            height: 450px;
+            box-shadow: 0px 10px 20px rgba(0, 255, 255, 0.5);
+            transition: transform 0.3s ease, height 0.3s ease;
         }
 
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        iframe:hover {
+            transform: scale(1.01);
         }
 
         /* Light Mode Styling */
@@ -191,23 +164,6 @@
             border-color: #ffd700; /* Gold Border */
             background: #fffbdf;
         }
-
-        iframe {
-            display: block;
-            margin: 2rem auto;
-            border: 10px solid #00bfff; /* Neon Blue Border */
-            border-radius: 20px;
-            background: #001f3f; /* Neon Blue Background */
-            width: 80%;
-            height: 450px;
-            box-shadow: 0px 10px 20px rgba(0, 255, 255, 0.5);
-            transition: transform 0.3s ease, height 0.3s ease;
-        }
-
-        iframe:hover {
-            transform: scale(1.01);
-        }
-
     </style>
 </head>
 <body>
@@ -215,7 +171,7 @@
         <h1 id="Title">Media House</h1>
         <button id="toggle_mode">Switch to Light Mode</button>
     </header>
-    <div class="movie-container">
+    <div>
         <label for="movie_name">Enter Movie Code:</label>
         <input id="movie_name" type="text">
         <button id="update_btn">Load Movie</button>
@@ -224,9 +180,7 @@
         <button id="hd_btn">HD</button>
         <button id="4k_btn">4K</button>
     </div>
-    <div class="iframe-container">
-        <iframe id="movie_iframe" src="https://vidsrc.me/embed/movie?imdb=tt13186482" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
-    </div>
+    <iframe id="movie_iframe" src="https://vidsrc.me/embed/movie?imdb=tt13186482" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
 
     <script>
         const movieInput = document.getElementById('movie_name');
