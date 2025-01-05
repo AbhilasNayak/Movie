@@ -32,7 +32,7 @@
         }
 
         header h1 {
-            font-family: 'Montserrat', sans-serif; /* Replace with Brande Sans Serif */
+            font-family: 'Montserrat', sans-serif;
             font-size: 3rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -173,7 +173,7 @@
     </header>
     <div>
         <label for="movie_name">Enter Movie Code:</label>
-        <input id="movie_name" type="text">
+        <input id="movie_name" type="text" placeholder="e.g., tt1234567">
         <button id="update_btn">Load Movie</button>
     </div>
     <div class="resolution-buttons">
@@ -194,10 +194,10 @@
         // Update Movie Code
         updateButton.addEventListener('click', () => {
             const movieCode = movieInput.value.trim();
-            if (movieCode) {
+            if (/^tt\d{7,8}$/.test(movieCode)) {
                 iframe.src = `https://vidsrc.me/embed/movie?imdb=${movieCode}`;
             } else {
-                alert('Please enter a valid movie code.');
+                alert('Please enter a valid IMDb movie code (e.g., tt1234567).');
             }
         });
 
@@ -213,11 +213,9 @@
         // Dark Mode and Light Mode Toggle
         toggleModeButton.addEventListener('click', () => {
             body.classList.toggle('light-mode');
-            if (body.classList.contains('light-mode')) {
-                toggleModeButton.textContent = 'Switch to Dark Mode';
-            } else {
-                toggleModeButton.textContent = 'Switch to Light Mode';
-            }
+            toggleModeButton.textContent = body.classList.contains('light-mode')
+                ? 'Switch to Dark Mode'
+                : 'Switch to Light Mode';
         });
     </script>
 </body>
